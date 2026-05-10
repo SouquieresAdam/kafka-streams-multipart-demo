@@ -91,16 +91,8 @@ falls strictly below a configurable threshold.
 
 ## Build & run
 
-The demo depends on `consulting.stream:kafka-streams-multipart-test-utils:3.9.2-kip1238-SNAPSHOT`
-in `mavenLocal()`. Publish it once from the library repo:
-
-```sh
-cd ../kafka-streams-multipart-test-utils
-git checkout kafka-3.7-3.9
-./gradlew publishToMavenLocal -PkafkaVersion=3.9.2 -x test
-```
-
-Then from this repo:
+The demo depends on `consulting.stream:kafka-streams-multipart-test-utils:3.9.2-0.1.0`,
+resolved from Maven Central:
 
 ```sh
 ./gradlew test
@@ -127,11 +119,12 @@ Edit `gradle.properties`:
 
 ```properties
 kafkaVersion=3.9.2
-multipartVersion=3.9.2-kip1238-SNAPSHOT
+multipartVersion=3.9.2-0.1.0
 ```
 
-Both must align with a published artefact in `mavenLocal()` from the matching branch of
-`kafka-streams-multipart-test-utils`. See its
+`multipartVersion` follows the `<kafkaCompatVersion>-<libSemver>` scheme: the prefix is the
+Kafka API surface the jar was built against, the suffix is the library's own semver. Both
+must align with a published artefact on Maven Central. See the
 [compatibility matrix](https://github.com/SouquieresAdam/kafka-streams-multipart-test-utils#compatibility-matrix)
 for which Kafka versions are supported.
 
