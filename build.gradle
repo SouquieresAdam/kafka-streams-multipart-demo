@@ -34,8 +34,8 @@ dependencies {
 test {
     useJUnitPlatform()
     testLogging {
-        events 'failed', 'skipped'
-        exceptionFormat 'full'
+        events = ['failed', 'skipped']
+        exceptionFormat = 'full'
         showStandardStreams = false
     }
     systemProperty 'org.slf4j.simpleLogger.defaultLogLevel', 'warn'
